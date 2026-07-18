@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.afrikariseresources.co.za/sitemap.xml
