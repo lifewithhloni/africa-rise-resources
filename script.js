@@ -9,4 +9,5 @@ const loader=document.querySelector('.loader'),scrollTop=document.querySelector(
 setTimeout(()=>loader.classList.add('done'),1350);
 window.addEventListener('scroll',()=>scrollTop.classList.toggle('visible',scrollY>500));
 document.querySelector('#projects .section-top .text-link').innerHTML='Request a quote <b>→</b>';
-document.querySelector('.menu').onclick=function(){const nav=document.querySelector('nav'),open=nav.style.display==='flex';nav.style.display=open?'none':'flex';this.setAttribute('aria-expanded',!open)};
+document.querySelector('.menu').onclick=function(){const header=document.querySelector('.nav'),open=header.classList.toggle('menu-open');this.setAttribute('aria-expanded',String(open))};
+document.querySelectorAll('.nav a').forEach(link=>link.addEventListener('click',()=>{document.querySelector('.nav').classList.remove('menu-open');document.querySelector('.menu').setAttribute('aria-expanded','false')}));
