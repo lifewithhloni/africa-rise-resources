@@ -8,4 +8,5 @@ window.addEventListener('scroll',updateNavigation);updateNavigation();
 const loader=document.querySelector('.loader'),scrollTop=document.querySelector('.scroll-top');
 setTimeout(()=>loader.classList.add('done'),1350);
 window.addEventListener('scroll',()=>scrollTop.classList.toggle('visible',scrollY>500));
+document.querySelector('#projects .section-top .text-link').innerHTML='Request a quote <b>→</b>';
 document.querySelector('.menu').onclick=function(){const nav=document.querySelector('nav'),open=nav.style.display==='flex';nav.style.display=open?'none':'flex';this.setAttribute('aria-expanded',!open)};
