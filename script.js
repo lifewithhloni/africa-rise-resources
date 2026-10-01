@@ -11,3 +11,20 @@ window.addEventListener('scroll',()=>scrollTop.classList.toggle('visible',scroll
 document.querySelector('#projects .section-top .text-link').innerHTML='Request a quote <b>→</b>';
 document.querySelector('.menu').onclick=function(){const header=document.querySelector('.nav'),open=header.classList.toggle('menu-open');this.setAttribute('aria-expanded',String(open))};
 document.querySelectorAll('.nav a').forEach(link=>link.addEventListener('click',()=>{document.querySelector('.nav').classList.remove('menu-open');document.querySelector('.menu').setAttribute('aria-expanded','false')}));
+
+const quoteForm = document.querySelector('#quote-form');
+if (quoteForm) {
+  quoteForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(quoteForm);
+    const body = [
+      `Name: ${data.get('name')}`,
+      `Business: ${data.get('business') || 'Not provided'}`,
+      `Email: ${data.get('email')}`,
+      `Phone: ${data.get('phone') || 'Not provided'}`,
+      `Service: ${data.get('service')}`,
+      `Enquiry: ${data.get('message')}`
+    ].join('\n');
+    window.location.href = `mailto:info@afrikariseresources.co.za?subject=${encodeURIComponent('Website enquiry — Africa Rise Resources')}&body=${encodeURIComponent(body)}`;
+  });
+}
